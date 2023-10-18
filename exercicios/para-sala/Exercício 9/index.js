@@ -16,7 +16,8 @@ class Funcionario{
     }
     
     exibirDados(){
-        console.log(`\n---- DADOS DO FUNCIONÁRIO ----\nNome: ${this.nome} \nCPF: ${this.cpf}\n`)
+        console.log(`Nome: ${this.nome}`);
+        console.log(`CPF: ${this.cpf}`);
     }
 }
 
@@ -30,7 +31,8 @@ class Gerente extends Funcionario{
     }
 
     exibirDados(){
-        console.log(`\n---- DADOS DO GERENTE ----\nNome: ${this.nome} \nCPF: ${this.cpf}\nNivel: ${this.nivelGerencia}\n`)
+        super.exibirDados();
+        console.log(`Nivel: ${this.nivelGerencia}`);
     }
 }
 
@@ -44,7 +46,8 @@ class Assistente extends Funcionario{
     }
 
     exibirDados(){
-        console.log(`\n---- DADOS DO ASSISTENTE ----\nNome: ${this.nome} \nCPF: ${this.cpf}\nMatrícula: ${this.matricula}\n`)
+        super.exibirDados();
+        console.log(`Matrícula: ${this.matricula}`);
     }
 }
 
@@ -57,7 +60,8 @@ class AssistenteTecnico extends Assistente{
     }
 
     exibirDados(){
-        console.log(`\n---- DADOS DO ASSISTENTE TECNICO ----\nNome: ${this.nome} \nCPF: ${this.cpf}\nMatrícula: ${this.matricula}\nBônus Salarial: ${this.bonusSalarial}\n`)
+        super.exibirDados();
+        console.log(`Bônus Salarial: ${this.bonusSalarial}`);
     }
 }
 
@@ -74,28 +78,34 @@ class AssistenteAdministrativo extends Assistente{
     }
 
     exibirDados(){
-        if(this.turno === "dia")
-            console.log(`\n---- DADOS DO ASSISTENTE ADMINISTRATIVO ----\nNome: ${this.nome} \nCPF: ${this.cpf}\nMatrícula: ${this.matricula}\nTurno: ${this.turno}\n`)
-        else
-            console.log(`\n---- DADOS DO ASSISTENTE ADMINISTRATIVO ----\nNome: ${this.nome} \nCPF: ${this.cpf}\nMatrícula: ${this.matricula}\nTurno: ${this.turno}\nAdicional Noturno: ${this.adicionalNoturno}\n`)
+        super.exibirDados()
+        console.log(`Turno: ${this.turno}`);
+        if(this.turno === "noite"){
+            console.log(`Adicional Noturno: ${this.adicionalNoturno}`);
+        }
     }
 }
 
-const funcionario1 = new Funcionario("Jorge", "84733354744", 1800)
-funcionario1.exibirDados()
-funcionario1.receberAumento()
-funcionario1.exibirDados()
+//const funcionario1 = new Funcionario("Jorge", "84733354744", 1800)
+//funcionario1.exibirDados()
+//funcionario1.receberAumento()
+//funcionario1.exibirDados()
 
-const gerente1 = new Gerente("Mateus", "57689432955", 5000, "Junior")
-gerente1.exibirDados()
+//const gerente1 = new Gerente("Mateus", "57689432955", 5000, "Junior")
+//gerente1.exibirDados()
+//gerente1.receberAumento()
+//gerente1.exibirDados()
 
-const assistente1 = new Assistente("André", "23456789054", 3000, 56432)
-assistente1.exibirDados()
+//const assistente1 = new Assistente("André", "23456789054", 3000, 56432)
+//assistente1.exibirDados()
 
-const assistenteTecnico1 = new AssistenteTecnico("André", "23456789054", 3000, 56788, 1000)
-assistenteTecnico1.exibirDados()
+//const assistenteTecnico1 = new AssistenteTecnico("André", "23456789054", 3000, 56788, 1000)
+//ssistenteTecnico1.exibirDados()
+//assistenteTecnico1.receberAumento()
+//assistenteTecnico1.exibirDados()
 
 const assistenteAdministrativo1 = new AssistenteAdministrativo("Patricia", "23476843267", 4000, 43215, "noite", 1005)
 assistenteAdministrativo1.exibirDados()
+console.log()
 const assistenteAdministrativo2 = new AssistenteAdministrativo("Carlos", "34565478900", 4000, 45377, "dia")
 assistenteAdministrativo2.exibirDados()
